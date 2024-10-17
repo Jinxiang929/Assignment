@@ -4,6 +4,8 @@
  */
 package assignment_1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jinxiang
@@ -13,9 +15,14 @@ public class CreatePanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewPanel
      */
-    public CreatePanel() {
+    Profile profile;
+    
+    public CreatePanel(Profile p) {
         initComponents();
+        profile = p;
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,6 +33,7 @@ public class CreatePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Gender = new javax.swing.ButtonGroup();
         title = new javax.swing.JLabel();
         first_name_l = new javax.swing.JLabel();
         gender_l = new javax.swing.JLabel();
@@ -42,9 +50,9 @@ public class CreatePanel extends javax.swing.JPanel {
         state_l = new javax.swing.JLabel();
         zip_l = new javax.swing.JLabel();
         first_name_txt = new javax.swing.JTextField();
-        lst_name_txt = new javax.swing.JTextField();
+        last_name_txt = new javax.swing.JTextField();
         email_txt = new javax.swing.JTextField();
-        pgone_txt = new javax.swing.JTextField();
+        phone_txt = new javax.swing.JTextField();
         DL_txt = new javax.swing.JTextField();
         SSN_txt = new javax.swing.JTextField();
         addr1_txt = new javax.swing.JTextField();
@@ -55,9 +63,6 @@ public class CreatePanel extends javax.swing.JPanel {
         Tel_txt = new javax.swing.JTextField();
         fax_txt = new javax.swing.JTextField();
         submit_b = new javax.swing.JButton();
-        female = new javax.swing.JCheckBox();
-        male = new javax.swing.JCheckBox();
-        other = new javax.swing.JCheckBox();
         self_l = new javax.swing.JLabel();
         self_txt = new javax.swing.JTextField();
         edu_l = new javax.swing.JLabel();
@@ -71,6 +76,9 @@ public class CreatePanel extends javax.swing.JPanel {
         emergency_number_l = new javax.swing.JLabel();
         emergency_number_txt = new javax.swing.JTextField();
         emergency_contact_l = new javax.swing.JLabel();
+        female = new javax.swing.JRadioButton();
+        male = new javax.swing.JRadioButton();
+        other = new javax.swing.JRadioButton();
 
         title.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -104,31 +112,23 @@ public class CreatePanel extends javax.swing.JPanel {
 
         zip_l.setText("Zip Code");
 
-        first_name_txt.setText("jTextField1");
+        first_name_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                first_name_txtActionPerformed(evt);
+            }
+        });
 
-        lst_name_txt.setText("jTextField1");
+        last_name_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                last_name_txtActionPerformed(evt);
+            }
+        });
 
-        email_txt.setText("jTextField4");
-
-        pgone_txt.setText("jTextField5");
-
-        DL_txt.setText("jTextField6");
-
-        SSN_txt.setText("jTextField7");
-
-        addr1_txt.setText("jTextField8");
-
-        addr2_txt.setText("jTextField9");
-
-        city_txt.setText("jTextField10");
-
-        state_txt.setText("jTextField11");
-
-        zip_txt.setText("jTextField12");
-
-        Tel_txt.setText("jTextField13");
-
-        fax_txt.setText("jTextField14");
+        SSN_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SSN_txtActionPerformed(evt);
+            }
+        });
 
         submit_b.setText("Submit");
         submit_b.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +137,27 @@ public class CreatePanel extends javax.swing.JPanel {
             }
         });
 
+        self_l.setText("Self-Description");
+
+        self_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                self_txtActionPerformed(evt);
+            }
+        });
+
+        edu_l.setText("Education");
+
+        birth_l.setText("Birthday");
+
+        major_l.setText("Major");
+
+        emergency_name_l.setText("Name");
+
+        emergency_number_l.setText("Number");
+
+        emergency_contact_l.setText("Emergency Contact");
+
+        Gender.add(female);
         female.setText("Female");
         female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,35 +165,21 @@ public class CreatePanel extends javax.swing.JPanel {
             }
         });
 
+        Gender.add(male);
         male.setText("Male");
+        male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleActionPerformed(evt);
+            }
+        });
 
+        Gender.add(other);
         other.setText("Other");
-
-        self_l.setText("Self-Description");
-
-        self_txt.setText("jTextField3");
-
-        edu_l.setText("Education");
-
-        edu_txt.setText("jTextField15");
-
-        birth_l.setText("Birthday");
-
-        birth_txt.setText("jFormattedTextField2");
-
-        major_l.setText("Major");
-
-        major_txt.setText("jTextField16");
-
-        emergency_name_l.setText("Name");
-
-        emergency_name_txt.setText("jTextField17");
-
-        emergency_number_l.setText("Number");
-
-        emergency_number_txt.setText("jTextField18");
-
-        emergency_contact_l.setText("Emergency Contact");
+        other.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -180,11 +187,8 @@ public class CreatePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(submit_b, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(296, 296, 296))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -209,14 +213,14 @@ public class CreatePanel extends javax.swing.JPanel {
                                                 .addComponent(first_name_l, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(email_txt)
+                                                .addComponent(first_name_txt, javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(female)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                     .addComponent(male)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(other))
-                                                .addComponent(email_txt)
-                                                .addComponent(first_name_txt, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(other))))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addComponent(DL_l)
                                             .addGap(18, 18, 18)
@@ -229,22 +233,23 @@ public class CreatePanel extends javax.swing.JPanel {
                                             .addComponent(major_l, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(17, 17, 17)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SSN_txt)
-                                            .addComponent(major_txt)))
+                                            .addComponent(major_txt)
+                                            .addComponent(SSN_txt)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(birth_l, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(phone_l, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(8, 8, 8))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(birth_l, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(phone_l, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(last_name_l, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(14, 14, 14)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lst_name_txt)
                                             .addComponent(birth_txt)
-                                            .addComponent(pgone_txt, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(last_name_txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(phone_txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(self_l)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -278,7 +283,10 @@ public class CreatePanel extends javax.swing.JPanel {
                                 .addComponent(fax_l)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(fax_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(93, 93, 93))))
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(submit_b, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(269, 269, 269))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emergency_name_txt, first_name_txt});
@@ -293,22 +301,22 @@ public class CreatePanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(first_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(last_name_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lst_name_txt))
+                        .addComponent(last_name_txt))
                     .addComponent(first_name_l, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gender_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(female)
-                    .addComponent(male)
-                    .addComponent(other)
                     .addComponent(birth_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birth_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(birth_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(male)
+                    .addComponent(female)
+                    .addComponent(other))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(email_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phone_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pgone_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phone_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -357,9 +365,9 @@ public class CreatePanel extends javax.swing.JPanel {
                     .addComponent(emergency_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emergency_number_l, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emergency_number_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addGap(40, 40, 40)
                 .addComponent(submit_b)
-                .addGap(29, 29, 29))
+                .addGap(24, 24, 24))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {DL_l, Tel_l, addr1_l, addr2_l, city_l, email_l, fax_l, gender_l, last_name_l, phone_l, state_l, zip_l});
@@ -368,16 +376,120 @@ public class CreatePanel extends javax.swing.JPanel {
 
     private void submit_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_bActionPerformed
         // TODO add your handling code here:
+        
+        String FirstName = first_name_txt.getText();
+        String LastName = last_name_txt.getText();
+        String Birthday = birth_txt.getText();
+        String Email = email_txt.getText();
+        String Phone = phone_txt.getText();
+        String DL = DL_txt.getText();
+        String SSN = SSN_txt.getText();
+        String Education = edu_txt.getText();
+        String Major = major_txt.getText();
+        String Addr1 = addr1_txt.getText();
+        String Addr2 = addr2_txt.getText();
+        String City = city_txt.getText();
+        String State = state_txt.getText();
+        String Zip = zip_txt.getText();
+        String Tel = Tel_txt.getText();
+        String Fax = fax_txt.getText();
+        String Self = self_txt.getText();
+        String EmeName = emergency_name_txt.getText();
+        String EmeNum = emergency_number_txt.getText();
+        //boolean Female = female.femaleActionPerformed();
+        //boolean Male = male.maleActionPerformed();
+        //boolean Other = other.otherActionPerformed();
+        
+        
+        
+        
+        profile.setFirstName(FirstName);
+        profile.setLastName(LastName);
+        profile.setBirthday(Birthday);
+        profile.setEmail(Email);
+        profile.setPhone(Phone);
+        profile.setDL(DL);
+        profile.setSSN(SSN);
+        profile.setEducation(Education);
+        profile.setMajor(Major);
+        profile.setAddr1(Addr1);
+        profile.setAddr2(Addr2);
+        profile.setCity(City);;
+        profile.setState(State);
+        profile.setZip(Zip);
+        profile.setTel(Tel);
+        profile.setFax(Fax);
+        profile.setSelf(Self);
+        profile.setEmeName(EmeName);
+        profile.setEmeNum(EmeNum);
+                
+        
+        
+        
+        JOptionPane.showMessageDialog(this, "Profile Submitted!", "Success", JOptionPane.PLAIN_MESSAGE);
+        
+        first_name_txt.setText("");
+        last_name_txt.setText("");
+        birth_txt.setText("");
+        email_txt.setText("");
+        phone_txt.setText("");
+        DL_txt.setText("");
+        SSN_txt.setText("");
+        edu_txt.setText("");
+        major_txt.setText("");
+        addr1_txt.setText("");
+        addr2_txt.setText("");
+        city_txt.setText("");
+        state_txt.setText("");
+        zip_txt.setText("");
+        Tel_txt.setText("");
+        fax_txt.setText("");
+        self_txt.setText("");
+        emergency_name_txt.setText("");
+        emergency_number_txt.setText("");
+        
+        
     }//GEN-LAST:event_submit_bActionPerformed
+
+    private void first_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_first_name_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_first_name_txtActionPerformed
+
+    private void last_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_last_name_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_last_name_txtActionPerformed
+
+    private void SSN_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSN_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SSN_txtActionPerformed
+
+    private void self_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_self_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_self_txtActionPerformed
 
     private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
         // TODO add your handling code here:
+        boolean Female = female.isSelected();
+        female.setSelected(true);
     }//GEN-LAST:event_femaleActionPerformed
+
+    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
+        // TODO add your handling code here:
+        boolean Male = male.isSelected();
+        male.setSelected(true);
+    }//GEN-LAST:event_maleActionPerformed
+
+    private void otherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherActionPerformed
+        // TODO add your handling code here:
+        boolean Other = other.isSelected();
+        other.setSelected(true);
+    }//GEN-LAST:event_otherActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DL_l;
     private javax.swing.JTextField DL_txt;
+    private javax.swing.ButtonGroup Gender;
     private javax.swing.JLabel SSN_l;
     private javax.swing.JTextField SSN_txt;
     private javax.swing.JLabel Tel_l;
@@ -401,18 +513,18 @@ public class CreatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField emergency_number_txt;
     private javax.swing.JLabel fax_l;
     private javax.swing.JTextField fax_txt;
-    private javax.swing.JCheckBox female;
+    private javax.swing.JRadioButton female;
     private javax.swing.JLabel first_name_l;
     private javax.swing.JTextField first_name_txt;
     private javax.swing.JLabel gender_l;
     private javax.swing.JLabel last_name_l;
-    private javax.swing.JTextField lst_name_txt;
+    private javax.swing.JTextField last_name_txt;
     private javax.swing.JLabel major_l;
     private javax.swing.JTextField major_txt;
-    private javax.swing.JCheckBox male;
-    private javax.swing.JCheckBox other;
-    private javax.swing.JTextField pgone_txt;
+    private javax.swing.JRadioButton male;
+    private javax.swing.JRadioButton other;
     private javax.swing.JLabel phone_l;
+    private javax.swing.JTextField phone_txt;
     private javax.swing.JLabel self_l;
     private javax.swing.JTextField self_txt;
     private javax.swing.JLabel state_l;
