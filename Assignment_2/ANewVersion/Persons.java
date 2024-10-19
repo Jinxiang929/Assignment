@@ -1,62 +1,165 @@
 package ANewVersion;
 
-import java.util.ArrayList;
-
 public class Persons {
-    ArrayList<String> personlist;
-
-    private String first_name;
-    private String last_name;
-    private String student_number;
+    private String firstName;
+    private String lastName;
+    private String studentNumber;
     private String age;
-    private String home_addr1;
-    private String home_addr2;
+    private String homeAddress1;
+    private String homeAddress2;
     private String city;
     private String state;
     private String zip;
     private String phone;
-    private String work_addr1;
-    private String work_addr2;
-    private String work_city;
-    private String work_state;
-    private String work_zip;
+    private String workAddress1;
+    private String workAddress2;
+    private String workCity;
+    private String workState;
+    private String workZip;
     private String fax;
 
+    // Constructor
+    public Persons(String firstName, String lastName, String studentNumber, String age,
+                  String homeAddress1, String homeAddress2, String city, String state,
+                  String zip, String phone, String workAddress1, String workAddress2,
+                  String workCity, String workState, String workZip, String fax) {
 
-    public Persons(String firstName, String lastName, String studentNumber, String age, String homeAddr1, String homeAddr2, String city, String state, String zip, String phone, String workAddr1, String workAddr2, String workCity, String workState, String workZip, String fax) {
-        this.first_name = firstName;
-        this.last_name = lastName;
-        this.student_number = studentNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.studentNumber = studentNumber;
         this.age = age;
-        this.home_addr1 = homeAddr1;
-        this.home_addr2 = homeAddr2;
+        this.homeAddress1 = homeAddress1;
+        this.homeAddress2 = homeAddress2;
         this.city = city;
         this.state = state;
         this.zip = zip;
         this.phone = phone;
-        this.work_addr1 = workAddr1;
-        this.work_addr2 = workAddr2;
-        this.work_city = workCity;
-        this.work_state = workState;
-        this.work_zip = workZip;
+        this.workAddress1 = workAddress1;
+        this.workAddress2 = workAddress2;
+        this.workCity = workCity;
+        this.workState = workState;
+        this.workZip = workZip;
         this.fax = fax;
     }
-    public void addperson(Persons person){
-        personlist.add(person.first_name);
-        personlist.add(person.last_name);
-        personlist.add(person.student_number);
-        personlist.add(person.age);
-        personlist.add(person.home_addr1);
-        personlist.add(person.home_addr2);
-        personlist.add(person.city);
-        personlist.add(person.state);
-        personlist.add(person.zip);
-        personlist.add(person.phone);
-        personlist.add(person.work_addr1);
-        personlist.add(person.work_addr2);
-        personlist.add(person.work_city);
-        personlist.add(person.work_state);
-        personlist.add(person.work_zip);
-        personlist.add(person.fax);
+
+    // Method to convert person details to a string array
+    public String[] toStringArray() {
+        return new String[]{
+                firstName,
+                lastName,
+                studentNumber,
+                age,
+                homeAddress1,
+                homeAddress2,
+                city,
+                state,
+                zip,
+                phone,
+                workAddress1,
+                workAddress2,
+                workCity,
+                workState,
+                workZip,
+                fax
+        };
     }
+
+
+public void setFirst_name(String first_name) {
+        this.firstName = first_name;
+    }
+    public String getFirst_name() {
+        return firstName;
+    }
+    public void setLast_name(String last_name) {
+        this.lastName = last_name;
+    }
+    public String getLast_name() {
+        return lastName;
+    }
+    public void setStudent_number(String student_number) {
+        this.studentNumber = student_number;
+    }
+    public String getStudent_number() {
+        return studentNumber;
+    }
+    public void setAge(String age) {
+        this.age = age;
+    }
+    public String getAge() {
+        return age;
+    }
+    public void setHome_addr1(String home_addr1) {
+        this.homeAddress1 = home_addr1;
+    }
+    public String getHome_addr1() {
+        return homeAddress1;
+    }
+    public void setHome_addr2(String home_addr2) {
+        this.homeAddress2 = home_addr2;
+    }
+    public String getHome_addr2() {
+        return homeAddress2;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setState(String state) {
+        this.state = state;
+    }
+    public String getState() {
+        return state;
+    }
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+    public String getZip() {
+        return zip;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public void setWork_addr1(String work_addr1) {
+        this.workAddress1 = work_addr1;
+    }
+    public String getWork_addr1() {
+        return workAddress1;
+    }
+    public void setWork_addr2(String work_addr2) {
+        this.workAddress2 = work_addr2;
+    }
+    public String getWork_addr2() {
+        return workAddress2;
+    }
+    public void setWork_city(String work_city) {
+        this.workCity = work_city;
+    }
+    public String getWork_city() {
+        return workCity;
+    }
+    public void setWork_state(String work_state) {
+        this.workState = work_state;
+    }
+    public String getWork_state() {
+        return workState;
+    }
+    public void setWork_zip(String work_zip) {
+        this.workZip = work_zip;
+    }
+    public String getWork_zip() {
+        return workZip;
+    }
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+    public String getFax() {
+        return fax;
+    }
+
 }
