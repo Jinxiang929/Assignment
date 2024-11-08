@@ -16,8 +16,6 @@ public class MainJFrame extends JFrame {
     private JTable table;
 
     Persons foundPerson;
-
-
     String first_name;
     String last_name;
     String student_number;
@@ -231,14 +229,13 @@ public class MainJFrame extends JFrame {
         personList.addPerson(person4);
         personList.addPerson(person5);
 
+        //table inside list panel
         String[] columns = {"First Name", "Last Name", "Home City", "Home Zip", "Work City", "Work Zip"};
         data = personList.toArray();
         tableModel = new DefaultTableModel(data, columns);
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
 
-
-        //table inside list panel
 
 //left panel
 
@@ -293,12 +290,13 @@ public class MainJFrame extends JFrame {
 
                 //System.out.println(personList);
 
-                data = personList.toArray();
-                tableModel.addRow(newPerson.toStringArray());
+
 
                 //Person newPerson = new Person(first_name, last_name, student_number, age, home_addr1, home_addr2, city, state, zip, phone, work_addr1, work_addr2, work_city, work_state, work_zip, fax);addperson
 
                 if (!first_name.isEmpty() && !last_name.isEmpty()) {
+                    data = personList.toArray();
+                    tableModel.addRow(newPerson.toStringArray());
                     JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "New Person Created !", "Success", JOptionPane.PLAIN_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "Please fill in fields.");
@@ -567,6 +565,8 @@ public class MainJFrame extends JFrame {
                         // Remove the person from the list
                         personList.removePerson(foundPerson);
 
+                        data = personList.toArray();
+                        updateTable();
                         foundPerson.setFirst_name(firstName);
                         foundPerson.setLast_name(lastName);
                         foundPerson.setStudent_number(studentNumber);
